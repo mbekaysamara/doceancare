@@ -1,0 +1,36 @@
+<!-- templates/billing/billing_list.html -->
+{% extends "base.html" %}
+
+{% block title %}Billing List{% endblock %}
+
+{% block content %}
+<h1>Billing List</h1>
+<a href="{% url 'billing:billing_create' %}">Add New Billing Entry</a>
+<table>
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Appointment</th>
+            <th>Amount</th>
+            <th>Payment Status</th>
+            <th>Payment Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for billing in billings %}
+        <tr>
+            <td>{{ billing.patient.name }}</td>
+            <td>{{ billing.appointment.id }}</td>
+            <td>{{ billing.amount }}</td>
+            <td>{{ billing.payment_status }}</td>
+            <td>{{ billing.payment_date }}</td>
+            <td>
+                <a href="{% url 'billing:billing_edit' billing.id %}">Edit</a>
+                <a href="{% url 'billing:billing_delete' billing.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOceanCare HMS</title>
+    <!-- Add your stylesheets and scripts here (e.g., Bootstrap, custom CSS) -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/scripts.js' %}"></script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Add navigation links here -->
+            <a href="{% url 'patients:patient_list' %}">Patients</a>
+            <a href="{% url 'doctors:doctor_list' %}">Doctors</a>
+            <a href="{% url 'appointments:appointment_list' %}">Appointments</a>
+            <a href="{% url 'billing:billing_list' %}">Billing</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content from each app's template will be injected here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 OceanCare HMS</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- templates/billing/billing_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}Billing Details{% endblock %}
+
+{% block content %}
+<h1>Billing Details</h1>
+
+<p><strong>Patient:</strong> {{ billing.patient.name }}</p>
+<p><strong>Appointment ID:</strong> {{ billing.appointment.id }}</p>
+<p><strong>Amount:</strong> ${{ billing.amount }}</p>
+<p><strong>Payment Status:</strong> {{ billing.payment_status }}</p>
+<p><strong>Payment Date:</strong> {{ billing.payment_date|default:"Not Paid" }}</p>
+
+<a href="{% url 'billing:billing_edit' billing.id %}">Edit Billing</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- templates/doctors/doctor_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}Doctor Details{% endblock %}
+
+{% block content %}
+<h1>Doctor Details: Dr. {{ doctor.name }}</h1>
+
+<p><strong>Specialization:</strong> {{ doctor.specialization }}</p>
+<p><strong>Phone Number:</strong> {{ doctor.phone_number }}</p>
+<p><strong>Email:</strong> {{ doctor.email }}</p>
+<p><strong>Address:</strong> {{ doctor.address }}</p>
+<p><strong>Gender:</strong> {{ doctor.gender }}</p>
+
+<h2>Appointments</h2>
+<ul>
+    {% for appointment in doctor.appointments.all %}
+        <li>
+            {{ appointment.appointment_date }} with {{ appointment.patient.name }}
+            - <a href="{% url 'appointments:appointment_detail' appointment.id %}">View Appointment</a>
+        </li>
+    {% empty %}
+        <p>No appointments found for this doctor.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

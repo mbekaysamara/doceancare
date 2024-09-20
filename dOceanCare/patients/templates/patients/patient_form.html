@@ -1,0 +1,13 @@
+<!-- templates/patients/patient_form.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ form.instance.pk|yesno:"Edit Patient,Add Patient" }}{% endblock %}
+
+{% block content %}
+<h1>{{ form.instance.pk|yesno:"Edit Patient,Add Patient" }}</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% endblock %}

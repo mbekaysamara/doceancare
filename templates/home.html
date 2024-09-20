@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - OceanCare{% endblock %}
+
+{% block content %}
+    <div class="homepage">
+        <div class="hero-section">
+            <h2>Welcome to OceanCare</h2>
+            <p>Your trusted partner in healthcare management. Experience seamless access to patient records, doctor schedules, and appointment booking.</p>
+            <a href="{% url 'appointments' %}" class="btn-primary">Book an Appointment</a>
+        </div>
+        
+        <div class="overview">
+            <h3>Our Services</h3>
+            <div class="card-group">
+                <div class="card">
+                    <h4>Patient Management</h4>
+                    <p>Efficiently manage patient records and history.</p>
+                </div>
+                <div class="card">
+                    <h4>Doctor Schedules</h4>
+                    <p>Keep track of doctor availability and appointments.</p>
+                </div>
+                <div class="card">
+                    <h4>Billing and Payments</h4>
+                    <p>Handle billing and financial transactions smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
